@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight, Sparkles, Layers, MonitorSmartphone, Palette, Send, CheckCircle2, Menu, X } from "lucide-react";
+import { ArrowUpRight, Sparkles, Layers, Send, CheckCircle2, Menu, X } from "lucide-react";
 
 const projects = [
   {
@@ -60,6 +60,32 @@ const rebrands = [
 
 const heroVideoUrl = "https://res.cloudinary.com/dezbnvvdc/video/upload/v1779515951/download_1_yrazie.mp4";
 
+function EmegeLogo({ className = "" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 260"
+      role="img"
+      aria-label="EMEGE"
+      className={className}
+    >
+      <g fill="currentColor">
+        <rect x="40" y="52" width="150" height="28" />
+        <rect x="40" y="116" width="150" height="28" />
+        <rect x="40" y="180" width="150" height="28" />
+        <path d="M240 52 H276 L355 148 L434 52 H470 V208 H435 V101 L355 192 L275 101 V208 H240 Z" />
+        <rect x="525" y="52" width="150" height="28" />
+        <rect x="525" y="116" width="150" height="28" />
+        <rect x="525" y="180" width="150" height="28" />
+        <path d="M823 49 C773 49 735 84 735 130 C735 176 773 211 823 211 C855 211 884 198 902 176 L902 208 H937 V125 H842 V153 H902 C891 171 863 181 826 181 C793 181 766 159 766 130 C766 101 793 79 826 79 C853 79 877 91 891 110 L918 92 C897 65 864 49 823 49 Z" />
+        <rect x="990" y="52" width="150" height="28" />
+        <rect x="990" y="116" width="150" height="28" />
+        <rect x="990" y="180" width="150" height="28" />
+      </g>
+    </svg>
+  );
+}
+
 function ProjectCard({ project }) {
   const ctaLabel = project.video
     ? "Reproducir vídeo"
@@ -115,7 +141,7 @@ function validateProjectData() {
 
 validateProjectData();
 
-export default function App() {
+export default function EmegeLandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleBriefSubmit = (event) => {
@@ -152,9 +178,11 @@ ${mensaje}`
 
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-[#f5f3ee]/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-xs font-semibold tracking-tight text-white">EM</div>
-            <span className="text-sm font-semibold tracking-[0.28em]">EMEGE</span>
+          <a href="#top" className="group flex items-center gap-3 text-black" aria-label="EMEGE - Inicio">
+            <EmegeLogo className="h-6 w-auto sm:h-7" />
+            <span className="hidden rounded-full border border-black/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-black/45 transition group-hover:border-black/25 group-hover:text-black/70 sm:inline-flex">
+              IA Solutions
+            </span>
           </a>
 
           <nav className="hidden items-center gap-8 text-sm text-black/70 md:flex">
@@ -198,65 +226,28 @@ ${mensaje}`
             className="absolute inset-0 -z-20 h-full w-full object-cover opacity-55 sm:opacity-60"
           />
           <div className="absolute inset-0 -z-10 bg-[#f5f3ee]/55" />
-          <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-10 sm:gap-12 md:min-h-[calc(100vh-8rem)] md:grid-cols-[1.2fr_0.8fr]">
-            <div>
+
+          <div className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl flex-col items-center justify-center gap-10 text-center sm:gap-12 md:min-h-[calc(100vh-8rem)]">
+            <div className="flex w-full max-w-6xl flex-col items-center">
               <div className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white/60 px-4 py-2 text-xs text-black/70 shadow-sm backdrop-blur sm:mb-8 sm:text-sm">
                 <Sparkles size={16} />
-                Webs, apps e identidades creadas con inteligencia artificial
+                IA aplicada a diseño, marca y producto digital
               </div>
 
-              <h1 className="max-w-5xl text-5xl font-semibold leading-[0.92] tracking-[-0.07em] text-black sm:text-6xl md:text-8xl md:leading-[0.9] lg:text-9xl">
-                Webs, apps y contenido digital con IA.
-              </h1>
+              <EmegeLogo className="w-full max-w-[980px] text-black" />
 
-              <p className="mt-6 max-w-2xl text-base leading-7 text-black/70 sm:mt-8 sm:text-lg sm:leading-8 md:text-xl">
-                Diseño, identidad visual y contenido audiovisual en un solo flujo de trabajo digital.
+              <p className="mt-8 max-w-3xl text-2xl font-medium leading-tight tracking-[-0.04em] text-black/75 sm:text-3xl md:text-4xl">
+                Webs, apps y contenido digital con IA.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
+              <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row">
                 <a href="#work" className="group inline-flex items-center justify-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-medium text-white transition hover:bg-lime-400 hover:text-black">
                   Ver casos de estudio
                   <ArrowUpRight className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={18} />
                 </a>
-                <a href="#brief" className="inline-flex items-center justify-center rounded-full border border-black/15 px-7 py-4 text-sm font-medium text-black transition hover:border-black hover:bg-white/60">
+                <a href="#brief" className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white/35 px-7 py-4 text-sm font-medium text-black backdrop-blur transition hover:border-black hover:bg-white/60">
                   Completar cuestionario
                 </a>
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-md md:max-w-none">
-              <div className="rounded-[2rem] border border-black/10 bg-black p-3 shadow-2xl shadow-black/20 sm:p-4">
-                <div className="rounded-[1.4rem] bg-[#171717] p-5 text-white">
-                  <div className="mb-8 flex items-center justify-between">
-                    <div className="flex gap-1.5">
-                      <span className="h-3 w-3 rounded-full bg-red-400" />
-                      <span className="h-3 w-3 rounded-full bg-yellow-300" />
-                      <span className="h-3 w-3 rounded-full bg-lime-300" />
-                    </div>
-                    <span className="text-xs text-white/40">EMEGE / LAB</span>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="rounded-2xl bg-white p-5 text-black">
-                      <p className="text-xs uppercase tracking-[0.24em] text-black/40">Caso destacado</p>
-                      <h3 className="mt-5 text-2xl font-semibold tracking-[-0.05em] sm:text-3xl">IA aplicada a marca, producto y conversión.</h3>
-                      <div className="mt-8 h-2 rounded-full bg-black/10">
-                        <div className="h-2 w-4/5 rounded-full bg-lime-300" />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                        <MonitorSmartphone size={22} />
-                        <p className="mt-8 text-3xl font-semibold">Webs</p>
-                        <p className="text-sm text-white/50">Apps + IA</p>
-                      </div>
-                      <div className="rounded-2xl border border-lime-300/30 bg-lime-300 p-4 text-black">
-                        <Palette size={22} />
-                        <p className="mt-8 text-3xl font-semibold">Brand</p>
-                        <p className="text-sm text-black/60">Contenido</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
