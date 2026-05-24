@@ -7,6 +7,27 @@
     <meta name="description" content="Portfolio de EMEGE: webs, apps, rebranding y contenido audiovisual creado con inteligencia artificial." />
   </head>
   <body>
+  <form name="brief-emege" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="brief-emege" />
+  <input name="bot-field" />
+  <input type="text" name="nombre" />
+  <input type="email" name="email" />
+  <input type="text" name="marca" />
+  <select name="necesidad">
+    <option>Web corporativa</option>
+    <option>Landing page</option>
+    <option>Aplicación web</option>
+    <option>Rebranding</option>
+    <option>Web + identidad visual</option>
+  </select>
+  <select name="presupuesto">
+    <option>Menos de 1.000 €</option>
+    <option>1.000 € - 3.000 €</option>
+    <option>3.000 € - 6.000 €</option>
+    <option>Más de 6.000 €</option>
+  </select>
+  <textarea name="mensaje"></textarea>
+</form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
