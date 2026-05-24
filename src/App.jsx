@@ -58,6 +58,25 @@ const rebrands = [
   "Dirección de arte",
 ];
 
+const methodSteps = [
+  {
+    title: "Diagnóstico",
+    desc: "Analizamos la marca, el objetivo del proyecto, el público y las referencias para definir una dirección clara desde el inicio.",
+  },
+  {
+    title: "Dirección creativa",
+    desc: "Construimos el enfoque visual, el tono, la estructura y la experiencia que mejor conectan con la identidad del proyecto.",
+  },
+  {
+    title: "Diseño + IA",
+    desc: "Desarrollamos la web, app, identidad o contenido combinando criterio visual, herramientas IA y ejecución digital ágil.",
+  },
+  {
+    title: "Lanzamiento",
+    desc: "Preparamos la entrega final, revisamos detalles técnicos y dejamos el proyecto listo para publicarse, compartirse o escalar.",
+  },
+];
+
 const heroVideoUrl = "https://res.cloudinary.com/dezbnvvdc/video/upload/v1779515951/download_1_yrazie.mp4";
 
 function EmegeLogo({ className = "" }) {
@@ -380,18 +399,18 @@ export default function EmegeLandingPage() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-4">
-            {["Diagnóstico", "Dirección creativa", "Diseño + IA", "Lanzamiento"].map((step, index) => (
+            {methodSteps.map((step, index) => (
               <div
-                key={step}
+                key={step.title}
                 className="rounded-[1.75rem] border border-black/10 bg-white/45 p-6"
               >
                 <span className="text-sm text-black/35">0{index + 1}</span>
                 <Layers className="mt-10" size={24} />
                 <h3 className="mt-6 text-xl font-semibold tracking-[-0.03em]">
-                  {step}
+                  {step.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-black/55">
-                  Proceso ágil, decisiones claras y entregables preparados para crecer con la marca.
+                  {step.desc}
                 </p>
               </div>
             ))}
