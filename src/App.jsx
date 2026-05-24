@@ -500,7 +500,7 @@ export default function EmegeLandingPage() {
 
               {formStatus === "error" && (
                 <p className="rounded-2xl bg-red-100 px-5 py-4 text-sm font-medium text-red-700">
-                  No se ha podido enviar. Inténtalo de nuevo o escribe a jmmaldo@icloud.com.
+                  No se ha podido enviar. Inténtalo de nuevo o escribe a Emegeia@proton.me.
                 </p>
               )}
             </form>
@@ -521,10 +521,10 @@ export default function EmegeLandingPage() {
 
               <div className="flex w-full flex-col gap-3 md:w-auto md:items-end">
                 <a
-                  href="mailto:jmmaldo@icloud.com"
+                  href="mailto:Emegeia@proton.me"
                   className="whitespace-nowrap text-[clamp(1rem,5vw,1.25rem)] font-semibold underline decoration-black/20 underline-offset-8 transition hover:decoration-black"
                 >
-                  jmmaldo@icloud.com
+                  Emegeia@proton.me
                 </a>
                 <p className="whitespace-nowrap text-[clamp(0.9rem,4vw,1rem)] text-black/60">
                   Webs · Apps · IA · Rebranding
