@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowUpRight, Sparkles, Layers, Send, CheckCircle2, Menu, X } from "lucide-react";
+import { ArrowUpRight, Sparkles, Layers, Send, CheckCircle2, Menu, X, LockKeyhole } from "lucide-react";
 
 const projects = [
   {
@@ -97,7 +97,7 @@ function EmegeLogo({ className = "" }) {
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index = 0 }) {
   const ctaLabel = project.video
     ? "Reproducir vídeo"
     : project.type === "Identidad Visual"
@@ -121,9 +121,15 @@ function ProjectCard({ project }) {
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="mb-14 flex min-h-10 items-start justify-between sm:mb-16">
-          <span className="rounded-full bg-[#F56E0F] px-3 py-1.5 text-xs font-medium text-[#151419]">
-            {project.type}
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full border border-[#F56E0F]/35 bg-[#F56E0F]/10 px-3 py-1.5 text-xs font-medium text-[#F56E0F]">
+              0{index + 1}
+            </span>
+            <span className="rounded-full bg-[#F56E0F] px-3 py-1.5 text-xs font-medium text-[#151419]">
+              {project.type}
+            </span>
+          </div>
+
           <a
             href={project.url || "#work"}
             target="_blank"
@@ -232,6 +238,7 @@ export default function EmegeLandingPage() {
   return (
     <div className="min-h-screen bg-[#151419] text-[#FBFBFB] selection:bg-[#F56E0F] selection:text-[#151419]">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#FBFBFB_1px,transparent_1px),linear-gradient(to_bottom,#FBFBFB_1px,transparent_1px)] bg-[size:48px_48px]" />
         <div className="absolute left-1/2 top-[-20rem] h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-[#F56E0F]/20 blur-3xl" />
         <div className="absolute bottom-[-16rem] right-[-12rem] h-[36rem] w-[36rem] rounded-full bg-[#878787]/10 blur-3xl" />
       </div>
@@ -257,6 +264,7 @@ export default function EmegeLandingPage() {
             <a href="#rebranding" className="transition hover:text-[#FBFBFB]">Rebranding</a>
             <a href="#method" className="transition hover:text-[#FBFBFB]">Método</a>
             <a href="#brief" className="transition hover:text-[#FBFBFB]">Brief</a>
+            <a href="/briefing.html" className="transition hover:text-[#FBFBFB]">Área cliente</a>
           </nav>
 
           <a href="#contact" className="hidden rounded-full bg-[#F56E0F] px-5 py-2.5 text-sm font-medium text-[#151419] transition hover:scale-[1.02] hover:bg-[#FBFBFB] md:inline-flex">
@@ -280,7 +288,12 @@ export default function EmegeLandingPage() {
               <a onClick={() => setMenuOpen(false)} href="#rebranding">Rebranding</a>
               <a onClick={() => setMenuOpen(false)} href="#method">Método</a>
               <a onClick={() => setMenuOpen(false)} href="#brief">Brief</a>
-              <a onClick={() => setMenuOpen(false)} href="#contact" className="rounded-full bg-[#F56E0F] px-5 py-3 text-center font-medium text-[#151419]">
+              <a onClick={() => setMenuOpen(false)} href="/briefing.html">Área cliente</a>
+              <a
+                onClick={() => setMenuOpen(false)}
+                href="#contact"
+                className="rounded-full bg-[#F56E0F] px-5 py-3 text-center font-medium text-[#151419]"
+              >
                 Contactar
               </a>
             </div>
@@ -319,8 +332,10 @@ export default function EmegeLandingPage() {
                   Ver casos de estudio
                   <ArrowUpRight className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={18} />
                 </a>
-                <a href="#brief" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-[#1B1B1E]/60 px-7 py-4 text-sm font-medium text-[#FBFBFB] backdrop-blur transition hover:border-[#F56E0F]/70 hover:bg-[#262626]">
-                  Completar cuestionario
+
+                <a href="/briefing.html" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-[#1B1B1E]/60 px-7 py-4 text-sm font-medium text-[#FBFBFB] backdrop-blur transition hover:border-[#F56E0F]/70 hover:bg-[#262626]">
+                  <LockKeyhole size={17} />
+                  Área cliente
                 </a>
               </div>
             </div>
@@ -341,14 +356,14 @@ export default function EmegeLandingPage() {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </div>
 
           <div className="mt-5 grid gap-5 md:grid-cols-2">
-            {audiovisualProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+            {audiovisualProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={featuredProjects.length + index} />
             ))}
           </div>
         </section>
@@ -455,7 +470,7 @@ export default function EmegeLandingPage() {
               )}
               {formStatus === "error" && (
                 <p className="rounded-2xl bg-red-500/15 px-5 py-4 text-sm font-medium text-red-200">
-                  No se ha podido enviar. Inténtalo de nuevo o escribe a Emegeia@proton.me.
+                  No se ha podido enviar. Inténtalo de nuevo o escribe a infoemege@proton.me.
                 </p>
               )}
             </form>
@@ -472,8 +487,8 @@ export default function EmegeLandingPage() {
                 </h2>
               </div>
               <div className="flex w-full flex-col gap-3 md:w-auto md:items-end">
-                <a href="mailto:Emegeia@proton.me" className="whitespace-nowrap rounded-full border border-[#F56E0F]/30 px-5 py-3 text-[clamp(1rem,5vw,1.25rem)] font-semibold text-[#F56E0F] transition hover:border-[#F56E0F] hover:bg-[#F56E0F] hover:text-[#151419]">
-                  Emegeia@proton.me
+                <a href="mailto:infoemege@proton.me" className="whitespace-nowrap rounded-full border border-[#F56E0F]/30 px-5 py-3 text-[clamp(1rem,5vw,1.25rem)] font-semibold text-[#F56E0F] transition hover:border-[#F56E0F] hover:bg-[#F56E0F] hover:text-[#151419]">
+                  infoemege@proton.me
                 </a>
                 <a href="https://www.instagram.com/emegeia" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap rounded-full border border-white/10 px-5 py-3 text-[clamp(1rem,5vw,1.25rem)] font-semibold text-[#FBFBFB] transition hover:border-[#F56E0F]/60 hover:text-[#F56E0F]">
                   @emegeia
@@ -485,6 +500,11 @@ export default function EmegeLandingPage() {
             </div>
           </div>
         </section>
+
+        <footer className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-5 py-8 text-xs uppercase tracking-[0.22em] text-[#878787] sm:flex-row sm:items-center sm:justify-between md:px-8">
+          <span>© EMEGE IA Solutions — 2026</span>
+          <span>Diseño digital · IA · Identidad visual</span>
+        </footer>
       </main>
     </div>
   );
