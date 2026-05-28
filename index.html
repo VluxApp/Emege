@@ -4,15 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EMEGE | IA Solutions</title>
-    <meta name="description" content="Portfolio de EMEGE: webs, apps, rebranding y contenido audiovisual creado con inteligencia artificial." />
+    <meta
+      name="description"
+      content="Portfolio de EMEGE: webs, apps, rebranding y contenido audiovisual creado con inteligencia artificial."
+    />
   </head>
+
   <body>
+    <!-- Formulario corto de la landing -->
     <form name="brief-emege" netlify netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="brief-emege" />
       <input name="bot-field" />
       <input type="text" name="nombre" />
       <input type="email" name="email" />
       <input type="text" name="marca" />
+
       <select name="necesidad">
         <option>Web corporativa</option>
         <option>Landing page</option>
@@ -20,13 +26,45 @@
         <option>Rebranding</option>
         <option>Web + identidad visual</option>
       </select>
+
       <select name="presupuesto">
         <option>Menos de 1.000 €</option>
         <option>1.000 € - 3.000 €</option>
         <option>3.000 € - 6.000 €</option>
         <option>Más de 6.000 €</option>
       </select>
+
       <textarea name="mensaje"></textarea>
+    </form>
+
+    <!-- Formulario largo del área cliente / briefing -->
+    <form name="briefing-emege" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="briefing-emege" />
+      <input name="bot-field" />
+
+      <input name="Nombre de la empresa o marca" />
+      <textarea name="Persona de contacto, cargo y datos de contacto"></textarea>
+      <textarea name="Sector, ciudad y zona donde trabaja principalmente"></textarea>
+      <textarea name="Web, Instagram, Facebook, TikTok u otros canales actuales"></textarea>
+      <textarea name="Qué hace la empresa y qué ofrece"></textarea>
+      <textarea name="Situación actual de la marca en redes o comunicación"></textarea>
+      <textarea name="Qué le gustaría mejorar respecto a imagen redes o comunicación"></textarea>
+      <textarea name="Tipo de cliente que quiere atraer"></textarea>
+      <textarea name="Tipo de cliente que prefiere evitar"></textarea>
+      <textarea name="Productos servicios o líneas principales de negocio"></textarea>
+      <textarea name="Diferenciación frente a empresas similares"></textarea>
+      <textarea name="Servicio producto promoción o mensaje a potenciar"></textarea>
+      <textarea name="Cómo quiere que se perciba la marca"></textarea>
+      <textarea name="Qué quiere transmitir en Instagram web o contenido"></textarea>
+      <textarea name="Identidad visual actual"></textarea>
+      <textarea name="Colores tipografías estilos visuales o estéticas que gustan y elementos a evitar"></textarea>
+      <textarea name="Tono de comunicación deseado"></textarea>
+      <textarea name="Tipo de contenido que quiere crear o mejorar"></textarea>
+      <textarea name="Material o recursos disponibles actualmente"></textarea>
+      <textarea name="Marcas cuentas o estilos de referencia"></textarea>
+      <textarea name="Competidores o negocios similares a tener en cuenta"></textarea>
+      <textarea name="Fecha importante lanzamiento apertura campaña o evento próximo"></textarea>
+      <textarea name="Qué espera de EMEGE Social y qué no quiere bajo ningún concepto"></textarea>
     </form>
 
     <div id="root"></div>
